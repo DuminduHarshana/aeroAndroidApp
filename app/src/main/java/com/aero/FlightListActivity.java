@@ -1,6 +1,8 @@
 package com.aero;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -9,9 +11,14 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.ArrayMap;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -23,28 +30,32 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Objects;
+import java.util.logging.Handler;
 
 public class FlightListActivity extends AppCompatActivity {
     private String TAG = "Dumindu";
-    Dialog myDialog;
     private ProgressDialog pDialog;
     private ListView lv;
     ArrayList<HashMap<String, String>> FlightList;
+    ListAdapter adapter;
+    JSONArray jsonArr;
+    ArrayAdapter<String>arrayAdapter;
 
-    // URL to get contacts JSON
     private static String url = "http://192.168.56.1:8080/api/v1/flights";
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flight_list);
-
+        ArrayAdapter<String> adapter;
         FlightList = new ArrayList<>();
         lv = (ListView) findViewById(R.id.list);
         new GetFlights().execute();
-
     }
 
     private class GetFlights extends AsyncTask<Void, Void, Void> {
@@ -71,7 +82,7 @@ public class FlightListActivity extends AppCompatActivity {
 
                 try {
 
-                    JSONArray jsonArr = new JSONArray(jsonStr);
+                     jsonArr = new JSONArray(jsonStr);
 
                     // looping through All Contacts
                     for (int i = 0; i < jsonArr.length(); i++) {
@@ -99,7 +110,7 @@ public class FlightListActivity extends AppCompatActivity {
                         String departureTime = c.getString("departureTime");
                         String arrivalTime = c.getString("arrivalTime");
                         String flightCharge = c.getString("flightCharge");
-                        JSONArray passengers = c.getJSONArray("passengers");
+//                        JSONArray passengers = c.getJSONArray("passengers");
                         // tmp hash map for single contact
                         HashMap<String, String> flight = new HashMap<>();
 
@@ -110,6 +121,8 @@ public class FlightListActivity extends AppCompatActivity {
                         flight.put("dairportCode", dairportCode);
                         // adding contact to contact list
                         FlightList.add(flight);
+
+
                     }
                 } catch (final JSONException e) {
                     Log.e(TAG, "Json parsing error: " + e.getMessage());
@@ -150,31 +163,38 @@ public class FlightListActivity extends AppCompatActivity {
             /**
              * Updating parsed JSON data into ListView
              * */
-            ListAdapter adapter = new SimpleAdapter(
+             adapter = new SimpleAdapter(
                 FlightListActivity.this, FlightList,
                 R.layout.list_item, new String[]{"flightId", "flightNumber",
                 "airportCode", "dairportCode"}, new int[]{R.id.flightid,
                 R.id.flightnumber, R.id.airportcode, R.id.dairportcode});
 
+
+
+
+//            lv.setAdapter(adapter);
+
+
+
             lv.setAdapter(adapter);
 
-
             //event for click
+
 
             lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    String TempListView= FlightList.get(position).toString();
+                    HashMap<String, String> TempListView = FlightList.get(position);
 
-                    Intent intent = new Intent(FlightListActivity.this,ListDetail.class);
-                    intent.putExtra("Listviewclickvalue",TempListView);
+                    Intent intent = new Intent(FlightListActivity.this, ListDetail.class);
+                    intent.putExtra("key", TempListView);
                     startActivity(intent);
                 }
             });
 
-            }
         }
-
-
     }
+
+
+}
 

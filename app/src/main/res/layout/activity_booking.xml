@@ -1,0 +1,74 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<RelativeLayout
+    xmlns:android = "http://schemas.android.com/apk/res/android" xmlns:tools = "http://schemas.android.com/tools" android:layout_width = "match_parent"
+    android:layout_height = "match_parent">
+    <LinearLayout
+        android:layout_width = "match_parent"
+        android:layout_height = "match_parent"
+        android:gravity = "center"
+        android:orientation = "vertical">
+
+        <EditText
+            android:id="@+id/editTextTextPersonName5"
+            android:layout_width="307dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="FirstName" />
+
+
+        <EditText
+            android:id="@+id/editTextlasttname"
+            android:layout_width="306dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="LastName" />
+
+        <EditText
+            android:id="@+id/editTextTextEmailAddress"
+            android:layout_width="307dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:hint="Email" />
+
+        <EditText
+            android:id="@+id/editTextTextPostalAddress"
+            android:layout_width="307dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPostalAddress"
+            android:hint="Address" />
+
+        <EditText
+            android:id="@+id/editTextpnumber"
+            android:layout_width="307dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:hint="PassportNumber" />
+
+        <EditText
+            android:id="@+id/editTextPhone"
+            android:layout_width="307dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="phone"
+            android:hint="PhoneNumber" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="189dp"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_book" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+
+    </LinearLayout>
+</RelativeLayout>

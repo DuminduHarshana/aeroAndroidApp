@@ -4,4 +4,18 @@
     <string name="password">password</string>
     <string name="login">login</string>
     <string name="button">Flight List</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="initial_airport_code_origin">AAR</string>
+    <string name="initial_airport_code_dest">ABV</string>
+    <string name="init_airport_origin">Aarhus</string>
+    <string name="Flight_number">Flight Number</string>
+    <string name="Departure_Airport">Departure Airport</string>
+    <string name="Des_Airport">Destination Airport</string>
+    <string name="Flight_id">Flight Id</string>
+    <string name="init_airport_dest">Abuja International</string>
+    <string name="title_activity_search_flights">Search Flights</string>
+    <string name="btn_book">Book Flight</string>
 </resources>

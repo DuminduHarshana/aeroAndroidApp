@@ -8,12 +8,104 @@
 
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/textitem1"
-        android:textSize="30dp"
-        android:layout_centerVertical="true"
-        android:textColor="@color/colorAccent" />
+        android:layout_width="202dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="200dp"
+        android:layout_marginBottom="547dp"
+        android:hint="@string/Flight_id"
+        android:textColor="@color/colorAccent"
+        android:textSize="30dp" />
 
+    <TextView
+        android:id="@+id/textitem2"
+        android:layout_width="195dp"
+        android:layout_height="34dp"
+        android:layout_above="@+id/textitem1"
+        android:layout_marginLeft="200dp"
+        android:layout_marginBottom="-86dp"
+        android:hint="@string/Departure_Airport"
+        android:textColor="@color/colorAccent"
+        android:textSize="30dp" />
+
+    <TextView
+        android:layout_width="202dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="547dp"
+        android:text="@string/Flight_id"
+        android:textColor="@color/colorAccent"
+        android:textSize="30dp"
+        />
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="38dp"
+        android:layout_above="@+id/textitem1"
+        android:layout_marginBottom="-90dp"
+        android:text="DepartureAirport"
+        android:textColor="@color/colorAccent"
+        android:textSize="30dp" />
+
+    <TextView
+        android:layout_width="202dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="442dp"
+        android:text="@string/Flight_number"
+        android:textColor="@color/colorAccent"
+        android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/textitem4"
+        android:layout_width="195dp"
+        android:layout_height="34dp"
+        android:layout_above="@+id/textitem1"
+        android:layout_marginLeft="200dp"
+        android:layout_marginBottom="-140dp"
+        android:hint="@string/Flight_number"
+        android:textColor="@color/colorAccent"
+        android:textSize="30dp" />
+
+    <TextView
+        android:layout_width="202dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="359dp"
+        android:text="@string/Des_Airport"
+        android:textColor="@color/colorAccent"
+        android:textSize="30dp" />
+    <TextView
+        android:id="@+id/textitem5"
+        android:layout_width="195dp"
+        android:layout_height="34dp"
+        android:layout_above="@+id/textitem1"
+        android:layout_marginLeft="200dp"
+        android:layout_marginBottom="-200dp"
+        android:hint="@string/Des_Airport"
+        android:textColor="@color/colorAccent"
+        android:textSize="30dp" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Details of flight" />
+
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <Button
+        android:id="@+id/bookflight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:layout_marginTop="600dp"
+        android:gravity="center"
+        android:layout_marginLeft="130dp"
+        android:text="Book Flight" />
 
 </RelativeLayout>
